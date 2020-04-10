@@ -19,8 +19,7 @@ case "`uname -m`" in
     #Add Tvheadend repository
     echo "Add Tvheadend repository"
      #deb https:/apt.tvheadend.orgunstable '$CODENAME' main'
-     #echo "deb https://apt.tvheadend.org/unstable $(lsb_release -sc) main" | sudo tee -a /etc/apt/sources.list.d/tvheadend.list
-	 echo "deb https://apt.tvheadend.org/stable $(lsb_release -sc) main" | sudo tee -a /etc/apt/sources.list.d/tvheadend.list
+     echo "deb https://apt.tvheadend.org/unstable $(lsb_release -sc) main" | sudo tee -a /etc/apt/sources.list.d/tvheadend.list
     ;;
   arm*|aarch64)
     sudo apt-get install software-properties-common
@@ -77,8 +76,8 @@ cp -r .instalacion_tmp/input/ /home/hts/.hts/tvheadend
 cp -r .instalacion_tmp/channel/ /home/hts/.hts/tvheadend
 mkdir /home/hts/.hts/tvheadend/epggrab
 cp -r .instalacion_tmp/config /home/hts/.hts/tvheadend/epggrab/
-cp -r .instalacion_tmp/tv_grab_decoadictos /usr/bin/
-cp -r .instalacion_tmp/decoadictos.txt /home/hts/decoadictos_version.tx
+cp -r .instalacion_tmp/tv_grab_epgdecoadictos /usr/bin/
+cp -r .instalacion_tmp/epgdecoadictos.txt /home/hts/epgdecoadictos_version.tx
 rm -fr .instalacion_tmp/
 
 #Downloading and installing picons
@@ -195,10 +194,10 @@ cat > /home/hts/.hts/tvheadend/epggrab/config <<EOF
 			"enabled": false,
 			"priority": 3
 		},
-		"/usr/bin/tv_grab_koala": {
+		"/usr/bin/tv_grab_epgdecoadictos": {
 			"class": "epggrab_mod_int_xmltv",
 			"dn_chnum": 0,
-			"name": "XMLTV: tv_grab_koala - Grabber koala--Movistar+ canales",
+			"name": "XMLTV: tv_grab_epgdecoadictos - Grabber DecoAdictos--Movistar+ canales",
 			"type": "Internal",
 			"enabled": true,
 			"priority": 3
